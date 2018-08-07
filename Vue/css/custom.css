@@ -1,0 +1,246 @@
+body {
+    padding-top: 90px;
+}
+@media (max-width: 767px) {
+  body {
+    padding-top: 210px;
+  }
+}
+
+fscroll.trie{
+    cursor: pointer;
+}
+
+.btn-change-date{
+    margin-right: 5px;
+}
+
+.tab-content{
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    margin-bottom: 6%;
+}
+
+.double-arrow{
+    padding: 5%;
+    margin-top: 12%;
+}
+
+.double-arrow span{
+    font-size: 30px;
+}
+
+.prod-tab-content{
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    margin: 0;
+    padding: 0;
+}
+
+.prod-tab-content ul, .tab-pane{
+    margin: 0;
+    padding: 0;
+}
+
+#link_prod h2{
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    color: #777;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#manage_prod .scrollable{
+    height: 300px;
+    border: 1px solid #ddd;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.nav-pills-scroll{
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    height: 300px;
+}
+
+#manage_prod .list-group{
+    margin-bottom: 0px;
+}
+
+.sortable-ul{
+    list-style: none;
+    min-height: 180px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.sortable-ul li{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 40px;
+    cursor: move;
+}
+
+.sortable-ul li small{
+    font-size: 10px;
+    font-weight: 100;
+    color: grey;
+}
+
+.sortable-ul-non-used{
+    list-style: none;
+    min-height: 180px;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.sortable-ul-non-used li{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 40px;
+    cursor: move;
+}
+
+.sortable-ul-non-used li small{
+    font-size: 10px;
+    font-weight: 100;
+    color: grey;
+}
+
+.spacing-top-row{
+    margin-top: 15px;
+}
+
+.spacing-bottom{
+    margin-bottom: 3%;
+}
+
+.vcenter{
+    display: inline-block;
+    vertical-align: -moz-middle-with-baseline;
+    margin-top: 1%;
+    float: none;
+}
+
+header{
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+}
+
+.header-background{
+    background-color: #A5A2A2;
+    height: 45px;
+}
+
+.logo-size{
+    height: 40px;
+}
+
+.canvas{
+    width: 100%;
+    height: auto;
+}
+
+.legende{
+    height: 50px;
+    max-height: 50px;
+}
+
+.label-selector{
+    width: 35%;
+}
+
+.height-filter{
+    height: 750px;
+    margin-bottom: 18%;
+}
+
+.height-dataAdd{
+    height: 400px;
+}
+
+#blocLogin{
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.footer #versionNumber{
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 42%;
+    font-size: small;
+}
+
+.footer{
+    background-color: #A5A2A2;
+}
+
+.footer p{
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
+.top-buffer{ 
+    margin-top:20px; 
+}
+
+.glyphicon-remove{
+    cursor : pointer;
+    cursor : hand;
+}
+
+.cw{
+    font-weight: bold;
+}
+
+.addDataInput{
+    width: 100%;
+}
+
+#scrollable{
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.col-centered{
+    width: 50%;
+    margin: 0 auto;
+    float: none;
+    display: inline-block;
+}
+
+#export-png{
+    margin-left: -8.5%;
+}
+
+.glyphicon-save-file{
+    font-size: 1em;
+}
+
+@media (min-width: 769px) and (max-width: 1281px) and (orientation:landscape) {
+    .container{
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+#gestionModele{
+    width: 100%;
+}
+
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-modifier{
+    height: 500px;
+    overflow-y: auto;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
