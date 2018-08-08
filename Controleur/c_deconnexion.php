@@ -6,3 +6,4 @@ unset($_SESSION["Mail"]);
 unset($_SESSION["Autorisation"]);
 unset($_SESSION["Droit"]);
 unset($_SESSION["Database"]);
+unset($_SESSION["Periodicite"]);

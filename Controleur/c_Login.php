@@ -34,6 +34,7 @@ if(isset($_POST["login"], $_POST["password"]) && $_POST["login"] != "" && $_POST
             $_SESSION["Nom"] = $currentUser["Login"];
             $_SESSION["Mail"] = $currentUser["Email"];
             $_SESSION["Autorisation"] = $currentUser["Droit"];
+            $_SESSION["Periodicite"] = $currentUser["Periodicite"];
 
             $controleur = 'connexion';
             $vue = 'Vue/v_Tableau_Bord.php';

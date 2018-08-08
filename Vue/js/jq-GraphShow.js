@@ -122,7 +122,9 @@ function addHighchart(id, nom, forme, startTime, values){
         c = getCommentByIdentificateur(value.IdIndicateur);
         commentaires[value.IdIndicateur] = new Array();
         if(c != null){
-            commentaires[value.IdIndicateur][c.Date] = c.Commentaire;
+            $.each(c, function(key, comment){
+                commentaires[value.IdIndicateur][comment.Date] = comment.Commentaire;
+            });
         }
         series.push({
             id: value.IdIndicateur,
@@ -268,23 +270,23 @@ function addHighchart(id, nom, forme, startTime, values){
         async: true
     };
 
-    var exportUrl = 'http://export.highcharts.com/';
-    $.post(exportUrl, data, function(d) {
-        var url = exportUrl + d;
-        console.log(url);
-        var param = "url=" + url + "&idModele=" + id;
-        $.ajax({
-            type: "POST",
-            url: "Controleur/HTTPRequest/HTTPRequestSaveImgByURL.php",
-            data: param,
-            success: function(content){
-                if(content != ""){
-                    console.log(content);
-                }
-            },
-            async: false
-        });
-    });
+    // var exportUrl = 'http://export.highcharts.com/';
+    // $.post(exportUrl, data, function(d) {
+    //     var url = exportUrl + d;
+    //     console.log(url);
+    //     var param = "url=" + url + "&idModele=" + id;
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "Controleur/HTTPRequest/HTTPRequestSaveImgByURL.php",
+    //         data: param,
+    //         success: function(content){
+    //             if(content != ""){
+    //                 console.log(content);
+    //             }
+    //         },
+    //         async: false
+    //     });
+    // });
 
     return chart;
 }

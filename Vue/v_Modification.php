@@ -18,9 +18,9 @@
                         <td><?php echo $key; ?></td>
                         <td><?php echo $modele["id"]; ?></td>
                         <?php if($modele["Actif"] == 1){ ?>
-                            <td><input type="checkbox" class="checkActif" value="<?php echo $modele["id"]; ?>" checked="checked"></td>
+                            <td><input type="checkbox" class="checkActif" value="<?php echo $modele["id"]; ?>" checked="checked"><div hidden>1</div></td>
                         <?php }else{ ?>
-                            <td><input type="checkbox" class="checkActif" value="<?php echo $modele["id"]; ?>"></td>
+                            <td><input type="checkbox" class="checkActif" value="<?php echo $modele["id"]; ?>"><div hidden>0</div></td>
                         <?php } ?>
                         <td><?php echo $modele["Nom"]; ?></td>
                         <td><?php echo getNomCreateurById($PDO, $modele["idCreateur"]); ?></td>

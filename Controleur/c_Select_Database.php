@@ -28,6 +28,7 @@ if(isset($_POST["submit_database"])){
     $_SESSION["Nom"] = $currentUser["Login"];
     $_SESSION["Mail"] = $currentUser["Email"];
     $_SESSION["Autorisation"] = $currentUser["Droit"];
+    $_SESSION["Periodicite"] = $currentUser["Periodicite"];
 
     $controleur = 'connexion';
     include('Controleur/c_PageSelect.php');

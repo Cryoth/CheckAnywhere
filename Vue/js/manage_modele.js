@@ -23,28 +23,27 @@ $(document).ready(function() {
                     ],
                 });
 
-    tableau.on( 'row-reorder', function ( e, details, edit ) {
-        var arr = new Array();
-        var ids = tableau.columns(1).data().eq( 0 );
-        
-        var temp = ids[details[0].oldPosition];
-        ids[details[0].oldPosition] = ids[details[0].newPosition];
-        ids[details[0].newPosition] = temp;
-        
-        $.each(ids, function(i, v){           
-            arr.push(v);
-        });
+    tableau.on('row-reorder', function ( e, details, edit ) {
 
-        var param = 'reorder=' + JSON.stringify(arr);
-        $.ajax({
-            type: "POST",
-            url: "Controleur/HTTPRequest/HTTPRequestModele.php",
-            data: param, 
-            success: function(contenu){
-                toastrSend("Changement sauvegardé", "Votre ordre d'affichage des modèles a été modifié avec succès", 1)
-            },
-            async: false
-        });
+        setTimeout(function() {
+            var arr = new Array(),
+                ids = tableau.columns(1).data().eq( 0 );
+
+            $.each(ids, function(i, v){           
+                arr.push(v);
+            });
+
+            var param = 'reorder=' + JSON.stringify(arr);
+            $.ajax({
+                type: "POST",
+                url: "Controleur/HTTPRequest/HTTPRequestModele.php",
+                data: param, 
+                success: function(contenu){
+                    toastrSend("Changement sauvegardé", "Votre ordre d'affichage des modèles a été modifié avec succès", 1)
+                },
+                async: false
+            });
+        }, 10); 
 
     } );  
 });

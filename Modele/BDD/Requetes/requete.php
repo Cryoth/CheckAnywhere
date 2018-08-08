@@ -2,7 +2,7 @@
 include('PDO.php');
 
 function getCurrentUserData($PDO, $userId){
-    $stmt = $PDO->prepare("SELECT Login, Email, Droit FROM Client WHERE id = :userId");
+    $stmt = $PDO->prepare("SELECT Login, Email, Droit, Periodicite FROM Client WHERE id = :userId");
     $stmt->bindValue('userId', $userId, PDO::PARAM_INT);
     $stmt->execute();
 

@@ -7,7 +7,20 @@ $(document).ready(function(){
     var param = "f=materiel" + "&source=" + $("[name='SelectSource']:checked").val();
     $("[name='SelectMateriel']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param, function(){
         var param = "f=unite&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val();
-        $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
+        $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param, function(){
+            if($("[name='SelectEuros']").is(":checked")){
+                var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=1";
+            }else{
+                var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=0";
+            }
+            if($("[name='SelectFrequence']").is(':checked')){
+                param = param + "&frequence=1";
+            }else{
+                param = param + "&frequence=0";
+            }
+            $("#valueSelector").empty();
+            $("#valueSelector").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
+        });
     });
 });
 

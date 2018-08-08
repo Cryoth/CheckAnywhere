@@ -8,4 +8,4 @@ $modeles = getAllModeleWithCreator($PDO, $_SESSION['UserId']);
 echo "<script>var user = ".$_SESSION['UserId']."</script>";
 echo "<script>var admin = ".$_SESSION["Autorisation"]."</script>";
 
-$script = "<script src='Vue/js/manage_modele.js'></script>";
+$script = "<script src='Vue/js/manage_modele.js?test=1323551'></script>";

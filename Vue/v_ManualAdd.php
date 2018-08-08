@@ -4,7 +4,7 @@
             <div class='panel-title row' >
                 <div class='text-center col-lg-4 col-lg-offset-4'>Ajout de valeurs de consommation</div>
                 <div class="text-right col-lg-2 col-lg-offset-2">
-                    <input id='togglePeriod' type="checkbox" data-toggle="toggle" data-on="Journalier" data-off="Hebdomadaire" data-onstyle="success" data-offstyle="info" checked />
+                    <input id='togglePeriod' type="checkbox" data-toggle="toggle" data-on="Journalier" data-off="Hebdomadaire" data-onstyle="success" data-offstyle="info" <?php if($_SESSION["Periodicite"] == 0){ echo "checked"; } ?> />
                 </div>
             </div>
         </div>
@@ -47,3 +47,5 @@
         </div>
     </div>
 </div>
+
+<script src="Vue/js/manualAdd_data.js"></script>

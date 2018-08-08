@@ -2,7 +2,7 @@
 
 include_once('Modele/BDD/Requetes/requete.php');
 
-$script = "<script src='Vue/js/graph-creation.js'></script>";
+$script = "<script src='Vue/js/graph-creation.js?578'></script>";
 
 echo $_POST["select-Materiels"];
 
