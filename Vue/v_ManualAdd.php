@@ -48,4 +48,4 @@
     </div>
 </div>
 
-<script src="Vue/js/manualAdd_data.js"></script>
+<script src="Vue/js/manualAdd_data.js?512"></script>

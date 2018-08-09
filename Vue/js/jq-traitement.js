@@ -60,6 +60,21 @@ $(document).on('click', "[name='SelectEuros']", function(){
     $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
     $("#valueSelector").empty();
     $("#valueCumul").empty();
+    var param = "f=unite&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val();
+    $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param, function(){
+        if($("[name='SelectEuros']").is(":checked")){
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=1";
+        }else{
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=0";
+        }
+        if($("[name='SelectFrequence']").is(':checked')){
+            param = param + "&frequence=1";
+        }else{
+            param = param + "&frequence=0";
+        }
+        $("#valueSelector").empty();
+        $("#valueSelector").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
+    });
 });
 
 $(document).on('click', "[name='SelectFrequence']", function(){
@@ -73,6 +88,21 @@ $(document).on('click', "[name='SelectFrequence']", function(){
     $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
     $("#valueSelector").empty();
     $("#valueCumul").empty();
+    var param = "f=unite&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val();
+    $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param, function(){
+        if($("[name='SelectEuros']").is(":checked")){
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=1";
+        }else{
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=0";
+        }
+        if($("[name='SelectFrequence']").is(':checked')){
+            param = param + "&frequence=1";
+        }else{
+            param = param + "&frequence=0";
+        }
+        $("#valueSelector").empty();
+        $("#valueSelector").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
+    });
 });
 
 $(document).on("click", "[name='SelectSource']", function(){
@@ -122,6 +152,21 @@ $(document).on("click", "#CIP", function(){
         $('#CHECK').removeClass('active');
         $('#CIP').addClass('active');
     }
+    var param = "f=unite&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val();
+    $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param, function(){
+        if($("[name='SelectEuros']").is(":checked")){
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=1";
+        }else{
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=0";
+        }
+        if($("[name='SelectFrequence']").is(':checked')){
+            param = param + "&frequence=1";
+        }else{
+            param = param + "&frequence=0";
+        }
+        $("#valueSelector").empty();
+        $("#valueSelector").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
+    });
 });
 
 $(document).on("click", "#CHECK", function(){
@@ -129,6 +174,21 @@ $(document).on("click", "#CHECK", function(){
         $('#CIP').removeClass('active');
         $('#CHECK').addClass('active');
     }
+    var param = "f=unite&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val();
+    $("[name='SelectUnite']").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param, function(){
+        if($("[name='SelectEuros']").is(":checked")){
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=1";
+        }else{
+            var param = "a=subfiltre&materiel=" + $("[name='SelectMateriel']").val() + "&source=" + $("[name='SelectSource']:checked").val() + "&unite=" + $("[name='SelectUnite']").val() + "&euro=0";
+        }
+        if($("[name='SelectFrequence']").is(':checked')){
+            param = param + "&frequence=1";
+        }else{
+            param = param + "&frequence=0";
+        }
+        $("#valueSelector").empty();
+        $("#valueSelector").load("Controleur/HTTPRequest/HTTPRequestFiltre.php", param);
+    });
 });
 
 //Sélection d'un produit pour ajout à la liste au double clique
@@ -142,6 +202,44 @@ $(document).on('dblclick', '#valueSelector option', function(){
 $(document).on('dblclick', '#valueCumul option', function(){
     $(this).remove();
 });
+
+
+
+$('#toggle-send-dashboard').on('change', function(){
+    if($(this).is(':checked')){
+        param = "sendmail=1";
+    }
+    else{
+        param = "sendmail=0";
+    }
+    param += "&user=" + $(this).val();
+    $.ajax({
+        type: "GET",
+        url: "Controleur/HTTPRequest/HTTPRequestUser.php",
+        data: param,
+        success: function(content){
+            console.log(content);
+        },
+        async: false
+    });
+});
+
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+}
+
+function decrementDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() - days);
+    return result;
+}
+
+function toDate(dateStr) {
+    var parts = dateStr.split("/");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}
 
 // TRAITEMENT PAGE AJOUT DONNEES
 
@@ -159,6 +257,12 @@ $('#select-Materiels').select2({
 
 // Evenements demandant à recharger la liste des données
 $(document).ready(function(){
+    if($("#togglePeriod").prop("checked") == true){
+        periodicite = "on";
+    }else{
+        periodicite = "off";
+    }
+    console.log(periodicite);
     if($('.tab-hebdo-journ').length) {
         loadDOMDataList(0);
     }
@@ -284,39 +388,3 @@ $('.btn-change-date').on('click', function(){
         $('.datepicker').datepicker('update', addDays(oldDate, 7));
     }
 });
-
-$('#toggle-send-dashboard').on('change', function(){
-    if($(this).is(':checked')){
-        param = "sendmail=1";
-    }
-    else{
-        param = "sendmail=0";
-    }
-    param += "&user=" + $(this).val();
-    $.ajax({
-        type: "GET",
-        url: "Controleur/HTTPRequest/HTTPRequestUser.php",
-        data: param,
-        success: function(content){
-            console.log(content);
-        },
-        async: false
-    });
-});
-
-function addDays(date, days) {
-    var result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
-}
-
-function decrementDays(date, days) {
-    var result = new Date(date);
-    result.setDate(result.getDate() - days);
-    return result;
-}
-
-function toDate(dateStr) {
-    var parts = dateStr.split("/");
-    return new Date(parts[2], parts[1] - 1, parts[0]);
-}

@@ -1,3 +1,5 @@
+
+
 // Changement des préférances de périodicité (hebdo / journalier)
 
 $('#togglePeriod').on('change', function(){
